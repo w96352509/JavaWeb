@@ -1,4 +1,4 @@
-package cc.openhome;
+package cc.openhome.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;

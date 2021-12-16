@@ -1,4 +1,4 @@
-package cc.openhome;
+package cc.openhome.controller;
 
 
 import java.io.IOException;
@@ -30,15 +30,15 @@ public class RegisterServlet extends HttpServlet {
         Boolean pay   = Boolean.parseBoolean(req.getParameter("pay"));
         String memo   = req.getParameter("memo");
         
-        // ¤À¬£¾¹
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/registerResult.jsp");
-        // °t¸m°Ñ¼Æ
+        // ï¿½tï¿½mï¿½Ñ¼ï¿½
         req.setAttribute("sno",  sno);
         req.setAttribute("eno",  eno);
         req.setAttribute("time", service.getTimeNamesById(time));
         req.setAttribute("pay",  pay);
         req.setAttribute("memo", memo);
-        // ¤À¬£
+        // ï¿½ï¿½ï¿½ï¿½
         rd.forward(req, resp);
     }
     

@@ -1,4 +1,4 @@
-package cc.openhome;
+package cc.openhome.controller;
 
 
 import java.io.IOException;
@@ -16,12 +16,12 @@ import cc.Service.CalcAreaService;
 @WebServlet("/CalcArea") // url-pattern
 public class CalcArea extends HttpServlet {
     
-    // ­pºâ service
+    // ï¿½pï¿½ï¿½ service
     private CalcAreaService service = new CalcAreaService();
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 1. ±µ¦¬³æµ§°Ñ¼Æ(³æ¤@¦WºÙ)
+        // 1. ï¿½ï¿½ï¿½ï¿½ï¿½æµ§ï¿½Ñ¼ï¿½(ï¿½ï¿½@ï¿½Wï¿½ï¿½)
         /*
         String string_type = req.getParameter("type");
         String string_r = req.getParameter("r");
@@ -29,23 +29,23 @@ public class CalcArea extends HttpServlet {
         int r = Integer.parseInt(string_r);
         */
         
-        // 1. ±µ¦¬¦h²Õ°Ñ¼Æ(¦h­«½Æ¦WºÙ)
+        // 1. ï¿½ï¿½ï¿½ï¿½ï¿½hï¿½Õ°Ñ¼ï¿½(ï¿½hï¿½ï¿½ï¿½Æ¦Wï¿½ï¿½)
         String[] types = req.getParameterValues("type");
         String[] rs    = req.getParameterValues("r");
         
-        // 2. °Ó·~ÅÞ¿è¹Bºâ
+        // 2. ï¿½Ó·~ï¿½Þ¿ï¿½Bï¿½ï¿½
         //double area = service.getAreaResult(type, r);
         //String typeName = service.getNameByType(type);
         List<Map> list = service.getAreaResults(types, rs);
         
-        // 3. «Ø¥ß¤À¬£¾¹»P jsp ¦ì¸m
+        // 3. ï¿½Ø¥ß¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½P jsp ï¿½ï¿½m
         RequestDispatcher rd = req.getRequestDispatcher("/WEB-INF/view/CalcArea.jsp");
-        // 3.1 ·s¼W/³]©w request ÄÝ©Ê, ¶Ç»¼µ¹ jsp ­¶­±¨Ï¥Î
+        // 3.1 ï¿½sï¿½W/ï¿½]ï¿½w request ï¿½Ý©ï¿½, ï¿½Ç»ï¿½ï¿½ï¿½ jsp ï¿½ï¿½ï¿½ï¿½ï¿½Ï¥ï¿½
         //req.setAttribute("r", r);
         //req.setAttribute("result", String.format("%.2f", area));
         //req.setAttribute("typeName", typeName);
         req.setAttribute("list", list);
-        // 3.2 ¶Ç°e
+        // 3.2 ï¿½Ç°e
         rd.forward(req, resp);
         //resp.getWriter().print(String.format("r: %d area: %.2f", r, area));
     }
