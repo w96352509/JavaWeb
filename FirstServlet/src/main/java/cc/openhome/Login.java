@@ -31,10 +31,10 @@ public class Login extends HttpServlet {
 	        String password = request.getParameter("password");
 	        out.printf(header);
 	        if ("caterpillar".equals(username) && "12345678".equals(password)) {
-	            out.print("<h1>µn¤J¦¨¥\</h1>");
+	            out.print("<h1>ç™»å…¥æˆåŠŸ</h1>");
 	        } else {
-	            out.print("<h1>µn¤J¥¢±Ñ</h1><br>");
-	            out.print("<a href='form.html'>¦^µn¤Jªí³æ</a>");
+	            out.print("<h1>å¤±æ•—</h1><br>");
+	            out.print("<a href='form.html'>å¸³è™Ÿå¯†ç¢¼éŒ¯èª¤</a>");
 	        }
 	        out.print(footer);
 	}
